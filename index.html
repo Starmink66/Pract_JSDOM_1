@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>практическая 1</title>
+    <style>
+        table{
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 150%; 
+            text-align: center;         
+        }
+        td {
+            padding: 10px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        //1
+        let mass = [];
+        let dlina = 30;
+        for (let i = 0; i < dlina; i++){
+            mass.push(Math.floor(Math.random() * 100))
+        }
+        let table = document.createElement('table');
+        for (let i = 0; i < 5; i++){
+            let row = table.insertRow();
+            for (let j = 0; j < 6; j++){
+                let cell = row.insertCell();
+                let index = i * 6 + j
+                cell.textContent = mass[index]
+                if (mass[index] == 50){
+                    cell.style.backgroundColor = 'orange'
+                }
+                else{continue}
+            }
+        }
+        document.body.appendChild(table)
+        //2
+        function foo(){
+            let num_ram = Math.floor(Math.random() * 100)
+            mass[29] = num_ram
+            let cell = table.rows[4].cells[5]
+            cell.textContent = mass[29]
+            if (num_ram == 50){
+                    cell.style.backgroundColor = 'orange'
+            }
+        }
+    </script>
+    <button onclick="foo()">Добавить число</button>
+</body>
+</html>
